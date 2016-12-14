@@ -38,7 +38,7 @@ def read_temp():
         return temp_c, temp_f
 
 
-numpixels = 5 # Number of LEDs in strip
+numpixels = 20 # Number of LEDs in strip
 
 # Here's how to control the strip from any two GPIO pins:
 datapin   = 23
@@ -90,7 +90,7 @@ def main():
         t = getTemperature()
         print("Got temperature of: " + str(t))
 
-        payload = {'raw_data': {"temperature": t}}
+        payload = 'raw_data={"temperature":' + str(t) + "{"
 
         # write values and read state
         headers = {"X-Exosite-CIK": utils.gwe_cik(), "Content-Type":"application/x-www-form-urlencoded; charset=utf-8", "Accept":"application/x-www-form-urlencoded; charset=utf-8"}
